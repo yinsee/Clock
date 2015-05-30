@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock</title>
+	<script type="text/javascript" src="jquery-2.1.0.min.js"></script>
+	<script type="text/javascript" src="php.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="instagram.js"></script>
+	<script type="text/javascript" src="facebook.js"></script>
+	<script type="text/javascript" src="twitter.js"></script>
+	<link rel="stylesheet" type="text/css" href="clock.css">
+</head>
+<body>
+
+<div id="photo">
+	<div class="gradient"></div>
+	<div class="user">
+		<img class="useravatar" align="absmiddle" src="images/avatar.png"><br>
+		<span class="username">username</span>
+	</div>	
+</div>
+
+<div id="checkin" class="lightshadow">
+	<span class="location">Simpang Empat</span>
+	| <span class="username">username</span>
+	<img class="useravatar" align="absmiddle" src="images/avatar.png">
+</div>
+
+<div id="status" class="lightshadow">
+	<img class="useravatar" align="absmiddle" src="images/avatar.png">
+	<span class="username">username</span> |
+	<img src="images/status-facebook.png" align="absmiddle">
+	<span class="message">Vestibulum id ligula porta felis euismod semper.</span>
+</div>
+
+<div id="clock">
+	<div class="time heavyshadow">00:00</div>
+	<div class="date lightshadow">---</div>
+</div>
+
+<div id="menu" class="closed">
+	<img src="images/menu.png">
+	<ul id="popup">
+	<li><a onclick="Instagram.configure();togglemenu();">Instagram</a></li>
+	<li><a onclick="Facebook.configure();togglemenu();">Facebook</a></li>
+	<li><a onclick="Twitter.configure();togglemenu();">Twitter</a></li>
+	</ul>
+</div>
+
+<div id="fb-root">
+</div>
+
+
+</body>
+</html>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+FB.init({
+  appId  : '371761983023796',
+  status : true, // check login status
+  cookie : true, // enable cookies to allow the server to access the session
+  xfbml  : true  // parse XFBML
+});
+
+function togglemenu() {
+	$('#menu').toggleClass('closed');
+}
+
+$(function() {
+	App.init();
+	$('#menu img').on('click', function() {
+		$('#menu').toggleClass('closed');
+	});
+});
+</script>
